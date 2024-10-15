@@ -8,10 +8,10 @@ const ShopContextProvider=(props)=> {
  
   const [all_product,setAll_product]=useState([])
   const [cartItems,setCartItems]=useState({})
-  
+  const baseUrl = process.env.REACT_APP_BASE_URL || "http://localhost:4000";
  
   useEffect(() => {
-    fetch("http://:4000/allproducts")
+    fetch(`${baseUrl}/allproducts`)
       .then((response) => response.json())
       .then((data) => {
         setAll_product(data);
